@@ -5,9 +5,11 @@ interface itemI {
   title: string;
 }
 
-const NewsFeedItem = ({item}: {item: itemI}) => {
+const NewsFeedItem = ({navigation, item}: {item: itemI; navigation: any}) => {
   return (
-    <TouchableOpacity style={styles.itemContainer} onPress={() => {}}>
+    <TouchableOpacity
+      style={styles.itemContainer}
+      onPress={() => navigation.navigate('News Details', {item})}>
       <Image
         style={styles.image}
         source={{

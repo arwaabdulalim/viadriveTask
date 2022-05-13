@@ -4,7 +4,7 @@ import Separator from '../components/Separator';
 import NewsFeedItem from '../components/NewsFeedItem';
 import SearchBar from '../components/SearchBar';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [newsList, setNewsList] = useState([]);
   const [fullData, setFullData] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
@@ -28,7 +28,9 @@ const Home = () => {
       <FlatList
         data={newsList}
         keyExtractor={news => news.title}
-        renderItem={({item, index}) => <NewsFeedItem item={item} />}
+        renderItem={({item, index}) => (
+          <NewsFeedItem item={item} navigation={navigation} />
+        )}
         refreshing={refreshing}
         onRefresh={() => {
           setRefreshing(true);

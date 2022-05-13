@@ -1,8 +1,9 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-
-import Home from './screens/Home';
+import Router from './config/Navigation/Router';
+import './config/constants/IMLocalize';
 
 const App = () => {
-  return <Home />;
+  return <Router />;
 };
 export default App;
