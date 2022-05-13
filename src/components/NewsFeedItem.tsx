@@ -1,16 +1,20 @@
 import {Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import React from 'react';
+interface itemI {
+  urlToImage: string;
+  title: string;
+}
 
-const NewsFeedItem = ({...props}: {props: any}) => {
+const NewsFeedItem = ({item}: {item: itemI}) => {
   return (
     <TouchableOpacity style={styles.itemContainer} onPress={() => {}}>
       <Image
         style={styles.image}
         source={{
-          uri: props.item.urlToImage,
+          uri: item.urlToImage,
         }}
       />
-      <Text style={styles.text}>{props.item.title}</Text>
+      <Text style={styles.text}>{item.title}</Text>
     </TouchableOpacity>
   );
 };

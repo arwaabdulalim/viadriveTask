@@ -4,11 +4,11 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import colors from '../config/themes/colors';
 
-const SearchBar = props => {
+const SearchBar = ({data, setData}: {data: []; setData: Function}) => {
   const [search, setSearch] = useState('');
   const searchFilter = text => {
     if (text) {
-      const filteredNews = props.data.filter(item => {
+      const filteredNews = data.filter(item => {
         const itemData = item.title
           ? item.title.toUpperCase()
           : ''.toUpperCase();
@@ -16,7 +16,7 @@ const SearchBar = props => {
         return itemData.includes(textData);
       });
       setSearch(text);
-      props.setData(filteredNews);
+      setData(filteredNews);
     } else {
       setSearch(text);
     }
