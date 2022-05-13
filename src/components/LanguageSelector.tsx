@@ -43,7 +43,8 @@ const LanguageSelector = () => {
             <Text
               style={[
                 selectedLanguage ? styles.selectedText : styles.text,
-                {color: theme.color},
+                ,
+                !selectedLanguage && {color: theme.color},
               ]}>
               {language.label}
             </Text>
