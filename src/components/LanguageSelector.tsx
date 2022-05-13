@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, Text, StyleSheet, Pressable} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useTranslation} from 'react-i18next';
 import colors from '../config/themes/colors';
+import themeContext from '../config/themes/themeContext';
 
 const LANGUAGES = [
   {code: 'en', label: 'English'},
@@ -11,6 +12,7 @@ const LANGUAGES = [
 
 const LanguageSelector = () => {
   const {t, i18n} = useTranslation();
+  const theme = useContext(themeContext);
   const selectedLanguageCode = i18n.language;
 
   const setLanguage = code => {
@@ -20,7 +22,9 @@ const LanguageSelector = () => {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <Text style={styles.title}>{t('common:languageSelector')}</Text>
+        <Text style={[styles.title, {color: theme.color}]}>
+          {t('common:languageSelector')}
+        </Text>
         <Ionicons
           color={colors.secondary}
           size={28}
@@ -37,7 +41,10 @@ const LanguageSelector = () => {
             disabled={selectedLanguage}
             onPress={() => setLanguage(language.code)}>
             <Text
-              style={[selectedLanguage ? styles.selectedText : styles.text]}>
+              style={[
+                selectedLanguage ? styles.selectedText : styles.text,
+                {color: theme.color},
+              ]}>
               {language.label}
             </Text>
           </Pressable>

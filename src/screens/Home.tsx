@@ -1,10 +1,16 @@
 import {FlatList, SafeAreaView} from 'react-native';
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
+
+import {useTranslation} from 'react-i18next';
+
+import themeContext from '../config/themes/themeContext';
+
 import Separator from '../components/Separator';
 import NewsFeedItem from '../components/NewsFeedItem';
 import SearchBar from '../components/SearchBar';
 
 const Home = ({navigation}) => {
+  const theme = useContext(themeContext);
   const [newsList, setNewsList] = useState([]);
   const [fullData, setFullData] = useState([]);
   const [refreshing, setRefreshing] = useState(false);

@@ -7,10 +7,10 @@ import {useTranslation} from 'react-i18next';
 
 const Stack = createStackNavigator();
 
-const Router = () => {
+const Router = ({mode}) => {
   const {t} = useTranslation();
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={mode}>
       <Stack.Navigator>
         <Stack.Screen
           options={{

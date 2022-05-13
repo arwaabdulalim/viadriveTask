@@ -1,11 +1,13 @@
+import React, {useContext} from 'react';
 import {Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
-import React from 'react';
+import themeContext from '../config/themes/themeContext';
 interface itemI {
   urlToImage: string;
   title: string;
 }
 
 const NewsFeedItem = ({navigation, item}: {item: itemI; navigation: any}) => {
+  const theme = useContext(themeContext);
   return (
     <TouchableOpacity
       style={styles.itemContainer}
@@ -16,7 +18,7 @@ const NewsFeedItem = ({navigation, item}: {item: itemI; navigation: any}) => {
           uri: item.urlToImage,
         }}
       />
-      <Text style={styles.text}>{item.title}</Text>
+      <Text style={[styles.text, {color: theme.color}]}>{item.title}</Text>
     </TouchableOpacity>
   );
 };

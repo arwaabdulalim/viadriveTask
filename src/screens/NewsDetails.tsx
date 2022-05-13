@@ -1,8 +1,10 @@
 import {StyleSheet, Text, View, Image} from 'react-native';
-import React from 'react';
+import React, {useContext} from 'react';
+import themeContext from '../config/themes/themeContext';
 
 const NewsDetails = props => {
   const {title, description, urlToImage} = props.route?.params?.item;
+  const theme = useContext(themeContext);
   return (
     <View style={styles.container}>
       <Image
@@ -12,8 +14,8 @@ const NewsDetails = props => {
         }}
       />
       <View>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.desc}>{description}</Text>
+        <Text style={[styles.title, {color: theme.color}]}>{title}</Text>
+        <Text style={[styles.desc, {color: theme.color}]}>{description}</Text>
       </View>
     </View>
   );
