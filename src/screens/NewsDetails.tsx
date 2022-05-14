@@ -1,6 +1,7 @@
 import {StyleSheet, Text, View, Image} from 'react-native';
 import React, {useContext} from 'react';
 import themeContext from '../config/themes/themeContext';
+import colors from '../config/themes/colors';
 
 const NewsDetails = props => {
   const {title, description, urlToImage} = props.route?.params?.item;
@@ -25,7 +26,7 @@ export default NewsDetails;
 
 const styles = StyleSheet.create({
   container: {justifyContent: 'center', alignItems: 'center', margin: 10},
-  image: {width: '70%', height: 250, margin: 10},
-  title: {color: 'black', fontWeight: 'bold'},
-  desc: {paddingTop: 15},
+  image: {width: '90%', height: '60%', marginBottom: 10},
+  title: {color: colors.black, fontWeight: 'bold', fontSize: 18},
+  desc: {paddingTop: 15, fontSize: 15},
 });

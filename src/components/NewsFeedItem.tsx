@@ -24,8 +24,12 @@ const NewsFeedItem = ({navigation, item}: {item: itemI; navigation: any}) => {
 };
 
 const styles = StyleSheet.create({
-  itemContainer: {flexDirection: 'row'},
+  itemContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   image: {width: '20%', height: 80},
-  text: {width: '80%', marginLeft: 5},
+  text: {width: '80%', marginLeft: 5, fontSize: 15},
 });
 export default NewsFeedItem;
