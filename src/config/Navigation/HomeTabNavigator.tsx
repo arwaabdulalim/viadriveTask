@@ -19,7 +19,7 @@ const HomeTabNavigator = () => {
         component={HomeScreen}
         options={{
           title: t('navigate:news'),
-          tabBarLabel: t('navigate:home'),
+          tabBarLabel: t('navigate:newsTab'),
           tabBarIcon: () => (
             <SimpleLineIcons name="home" size={22} color={colors.primary} />
           ),

@@ -1,24 +1,41 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, ScrollView} from 'react-native';
 import React, {useContext} from 'react';
 import themeContext from '../config/themes/themeContext';
 import colors from '../config/themes/colors';
 
-const NewsDetails = props => {
-  const {title, description, urlToImage} = props.route?.params?.item;
+interface newsI {
+  title: string;
+  urlToImage: string;
+  author: string;
+  publishedAt: string;
+  content: string;
+}
+
+const NewsDetails = (props: any) => {
+  const {title, urlToImage, author, publishedAt, content}: newsI =
+    props.route?.params?.item;
   const theme = useContext(themeContext);
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={{
-          uri: urlToImage,
-        }}
-      />
-      <View>
-        <Text style={[styles.title, {color: theme.color}]}>{title}</Text>
-        <Text style={[styles.desc, {color: theme.color}]}>{description}</Text>
+    <ScrollView contentContainerStyle={{flexGrow: 1}}>
+      <View style={styles.container}>
+        <Image
+          style={styles.image}
+          source={{
+            uri: urlToImage,
+          }}
+        />
+        <View>
+          <Text style={[styles.title, {color: theme.color}]}>{title}</Text>
+          <Text style={[styles.desc, {color: theme.color}]}>
+            Author: {author}
+          </Text>
+          <Text style={[styles.desc, {color: theme.color}]}>
+            Published at: {publishedAt}
+          </Text>
+          <Text style={[styles.desc, {color: theme.color}]}>{content}</Text>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

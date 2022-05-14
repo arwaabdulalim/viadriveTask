@@ -1,5 +1,5 @@
 export default {
-  home: 'Écran principal',
+  newsTab: 'Nouvelles',
   settings: 'Le réglage',
   details: "Détails de l'actualité",
   news: "Fil d'actualité",
