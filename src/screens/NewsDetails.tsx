@@ -25,7 +25,7 @@ export default NewsDetails;
 
 const styles = StyleSheet.create({
   container: {justifyContent: 'center', alignItems: 'center', margin: 10},
-  image: {width: '70%', height: 150, margin: 10},
+  image: {width: '70%', height: 250, margin: 10},
   title: {color: 'black', fontWeight: 'bold'},
   desc: {paddingTop: 15},
 });

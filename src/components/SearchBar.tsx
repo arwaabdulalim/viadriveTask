@@ -1,11 +1,14 @@
 import {StyleSheet, View, TextInput} from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {useTranslation} from 'react-i18next';
 
+import themeContext from '../config/themes/themeContext';
 import colors from '../config/themes/colors';
 
 const SearchBar = ({data, setData}: {data: []; setData: Function}) => {
+  const theme = useContext(themeContext);
+
   const {t} = useTranslation();
   const [search, setSearch] = useState('');
   const searchFilter = text => {
@@ -24,7 +27,7 @@ const SearchBar = ({data, setData}: {data: []; setData: Function}) => {
     }
   };
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {color: theme.color}]}>
       <MaterialIcons
         name="search"
         size={25}
@@ -32,7 +35,7 @@ const SearchBar = ({data, setData}: {data: []; setData: Function}) => {
         style={styles.icon}
       />
       <TextInput
-        style={styles.textInput}
+        style={[styles.textInput, {color: theme.color}]}
         placeholder={t('common:search')}
         value={search}
         onChangeText={text => {
